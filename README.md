@@ -24,3 +24,8 @@ file should contain the APP_KEY on the first line, followed by the APP_SECRET ke
 
 Also, for the DropboxBackupService.py script, you will need a file named "config.txt" which contains the path to your 
 backup location. This helps facilitate scheduling via Windows Task Scheduler or some other tool.
+
+License
+=======
+
+This software falls under the MIT License, with the full license included in the file "license.txt"
