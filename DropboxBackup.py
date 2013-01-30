@@ -6,9 +6,14 @@ import pickle
 
 from dropbox import client, rest, session
 
-APP_KEY = '0o0eh7444vn4sq7'
-APP_SECRET = 'ckd7bnbb3otlpdu'
+APP_KEY = ''
+APP_SECRET = ''
 ACCESS_TYPE = 'dropbox'
+
+secrets = open('secrets.txt', 'r')
+APP_KEY = secrets.readline().rstrip()
+APP_SECRET = secrets.readline().rstrip()
+secrets.close()
 
 def createParents(path):
     if os.path.isdir(path):
@@ -198,7 +203,15 @@ class StoredSession(session.DropboxSession):
         self.delete_creds()
         session.DropboxSession.unlink(self)
 
+def readSecretKeys():
+    secrets = open('secrets.txt', 'r')
+    APP_KEY = secrets.readline().rstrip()
+    APP_SECRET = secrets.readline().rstrip()
+    #APP_KEY = '0o0eh7444vn4sq7'
+    #APP_SECRET = 'ckd7bnbb3otlpdu'
+
 def main():
+    #readSecretKeys()
     backup = DropboxBackup(APP_KEY, APP_SECRET)
     backup.cmdloop()
 
