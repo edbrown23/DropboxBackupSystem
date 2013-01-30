@@ -203,13 +203,6 @@ class StoredSession(session.DropboxSession):
         self.delete_creds()
         session.DropboxSession.unlink(self)
 
-def readSecretKeys():
-    secrets = open('secrets.txt', 'r')
-    APP_KEY = secrets.readline().rstrip()
-    APP_SECRET = secrets.readline().rstrip()
-    #APP_KEY = '0o0eh7444vn4sq7'
-    #APP_SECRET = 'ckd7bnbb3otlpdu'
-
 def main():
     #readSecretKeys()
     backup = DropboxBackup(APP_KEY, APP_SECRET)
