@@ -164,3 +164,4 @@ pip-log.txt
 
 # Secret Info Files
 secrets.txt
+token_store.txt
